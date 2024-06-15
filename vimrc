@@ -1,6 +1,8 @@
+set scrolloff=20
 set number
 set relativenumber
 set noexpandtab
+set cursorline
 inoremap jk <Esc>
 vnoremap jk <Esc>
 
@@ -9,25 +11,28 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'Luxed/ayu-vim' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'doums/darcula'
 call plug#end()
 
+syntax enable
+set background=dark
+colorscheme darcula
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'dark'
+"set guifont=FiraCode\ Nerd\ Font:h12 " Set a font similar to JetBrains Mono
+set guifont=JetBrains\ Mono:h12
+set number                " Show line numbers
+set relativenumber        " Show relative line numbers
+set cursorline            " Highlight the current line
 set termguicolors   
-set background=light
-set background=dark 
 
-let g:ayucolor="mirage" " for mirage version of theme
-let g:ayucolor="dark"   " for dark version of theme
-" NOTE: g:ayucolor will default to 'dark' when not set.
 
-colorscheme ayu
 
-"colorscheme space-vim-dark
-"   Range:   233 (darkest) ~ 238 (lightest)
-"   Default: 235
-"let g:space_vim_dark_background = 233
-"color space-vim-dark
-" Vim Script
-"let g:airline_theme='violet'
+
+
 
 let mapleader = " "
 nnoremap <leader>pv :Vex<CR>
@@ -40,11 +45,11 @@ nnoremap <leader>Y gg"+yG
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap J :m '>+1<CR>gv=gv
 
-" Use leader key followed by ll to move to the left window
 nnoremap <leader>ll <C-w>l
 nnoremap <leader>hh <C-w>h
 nnoremap <leader>kk <C-w>k
 nnoremap <leader>jj <C-w>j
+nnoremap <silent> <leader>cf :%!clang-format<CR>
 
 
 
