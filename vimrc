@@ -51,6 +51,10 @@ nnoremap <leader>kk <C-w>k
 nnoremap <leader>jj <C-w>j
 nnoremap <silent> <leader>cf :%!clang-format<CR>
 
+" Switch between buffers
+map <leader>n :bnext<cr>
+map <leader>p :bprevious<cr>
+map <leader>d :bdelete<cr>
 
 
 
